@@ -1,0 +1,32 @@
+# Natural Commit Message Examples
+# Use these for more human-like git commits
+
+## Bug Fixes
+- fixed button click issue
+- resolved mobile menu bug
+- patched login error
+- corrected data validation
+
+## Features
+- added role based permissions
+- implemented responsive design
+- created dashboard kpis
+- built trip management system
+
+## Improvements
+- improved ui responsiveness
+- updated table styles
+- enhanced mobile layout
+- refactored api calls
+
+## Documentation
+- added setup instructions
+- updated readme
+- wrote testing guide
+- documented api endpoints
+
+## Small Changes
+- minor css tweaks
+- updated dependencies
+- cleaned up code
+- fixed typos
