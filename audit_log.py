@@ -13,7 +13,7 @@ class AuditLog(db.Model):
     __tablename__ = 'audit_logs'
     
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, nullable=True)  # Removed ForeignKey to allow NULL for failed logins
     user_email = db.Column(db.String(255), nullable=False)
     user_role = db.Column(db.String(50), nullable=False)
     action = db.Column(db.String(100), nullable=False)  # CREATE, UPDATE, DELETE, LOGIN, etc.
@@ -94,7 +94,7 @@ class AuditLogger:
             user_agent = request.headers.get('User-Agent', '')[:500] if request else None
             
             audit_log = AuditLog(
-                user_id=user.id if user else None,
+                user_id=user.id if user else None,  # None for failed logins
                 user_email=email,
                 user_role=user.role if user else 'UNKNOWN',
                 action='LOGIN_SUCCESS' if success else 'LOGIN_FAILED',
